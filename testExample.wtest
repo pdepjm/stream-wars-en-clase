@@ -1,0 +1,12 @@
+import example.*
+
+describe "viewers" {
+  test "viewers SQV" {
+    var episodio1 = new EpisodioSonieQueVolaba(
+      canciones = 4,
+      invitados = [],
+      costoProduccion = 15000
+    )
+    assert.equals(40000, episodio1.viewers())
+  }
+}
