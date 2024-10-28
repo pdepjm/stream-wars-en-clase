@@ -1,12 +1,23 @@
 import streams.*
+import invitados.InvitadoInfluencerDeMascotas
 
-describe "viewers" {
+describe "streams" {
+  var episodio1 = new EpisodioSonieQueVolaba(
+    canciones = 4,
+    invitados = [
+      new InvitadoInfluencerDeMascotas(
+        cantidadDeMascotas = 4,
+        seguidoresIg = 100
+      )
+    ],
+    costoProduccion = 15000
+  )
+  
   test "viewers SQV" {
-    var episodio1 = new EpisodioSonieQueVolaba(
-      canciones = 4,
-      invitados = [],
-      costoProduccion = 15000
-    )
     assert.equals(40000, episodio1.viewers())
+  }
+  
+  test "hype de un stream" {
+    assert.equals(50, episodio1.nivelDeHype())
   }
 }

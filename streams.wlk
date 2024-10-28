@@ -12,16 +12,6 @@ class Stream {
   method viewers()
 }
 
-class DiaEnLaRealidad {
-  var cantSucesos = 10
-  
-  method sucesos(cantidad) {
-    cantSucesos = cantidad
-  }
-  
-  method estaInteresante() = cantSucesos > 5
-}
-
 class EpisodioCanal inherits Stream (invitados = []) {
   var costoProduccion
   
@@ -36,6 +26,16 @@ class EpisodioHayAlgoAhi inherits EpisodioCanal {
   override method viewers() = if (self.hayAnalisisSesudos()) 10000 else 20000
   
   override method nivelDeHype() = 100
+}
+
+class DiaEnLaRealidad {
+  var cantSucesos = 10
+  
+  method sucesos(cantidad) {
+    cantSucesos = cantidad
+  }
+  
+  method estaInteresante() = cantSucesos > 5
 }
 
 class EpisodioSonieQueVolaba inherits EpisodioCanal {
@@ -60,13 +60,6 @@ class SesionStreamDeCoscu inherits SesionStreamerIndependiente {
   override method viewers() = super() + momentoDelDia.genteConectada()
 }
 
-object streamIvo inherits SesionStreamerIndependiente (
-  invitados = [],
-  suscriptores = 1200
-) {
-  
-}
-
 object maniana {
   method genteConectada() = 1000
 }
@@ -79,16 +72,10 @@ object noche {
   method genteConectada() = 10000
 }
 
-class Invitado {
-  var seguidoresIg
-  
-  method popularidad() = seguidoresIg / 2
-}
-
-class InvitadoInfluencerDeMascotas inherits Invitado {
-  var cantidadDeMascotas
-  
-  method jugarConMascotas() {
-    seguidoresIg = 1.max(seguidoresIg * cantidadDeMascotas)
-  }
+object streamIvo inherits SesionStreamerIndependiente (
+  invitados = [],
+  suscriptores = 1200
+) {
+  // BONUS: objeto heredando 
+  // y dandole valor a los atributos heredados
 }
